@@ -158,43 +158,47 @@ function myAlert(status, text) {
                 // 设置最终样式
                 setTimeout(() => {
                     let i = 0
+                    // 设置a,b,c变量是为了让one，two，three定时都只会执行一次
                     let a = 1
+                    let b = 1
+                    let c = 1
                     let animation = setInterval(() => {
                         if (a == 1) {
                             let one = setInterval(() => {
                                 if (i == -25) {
-                                    a = 2
                                     clearInterval(one)
+                                    b = 2
                                 } else {
                                     css(icon, {
                                         'transform': `rotate(${--i}deg)`
                                     })
                                 }
                             }, 10);
-                        } else if (a == 2) {
+                            a = 2
+                        } else if (b == 2) {
                             let two = setInterval(() => {
                                 if (i == 25) {
-                                    a = 3
                                     clearInterval(two)
+                                    c = 2
                                 } else {
                                     css(icon, {
                                         'transform': `rotate(${++i}deg)`
                                     })
                                 }
                             }, 10);
-                        } else if (a == 3) {
+                            b = 3
+                        } else if (c == 2) {
                             let three = setInterval(() => {
                                 if (i == 0) {
-                                    a = 4
                                     clearInterval(three)
+                                    clearInterval(animation)
                                 } else {
                                     css(icon, {
                                         'transform': `rotate(${--i}deg)`
                                     })
                                 }
                             }, 10);
-                        } else if (a == 4) {
-                            clearInterval(animation)
+                            c = 3
                         }
                     }, 10)
                 }, 300);
