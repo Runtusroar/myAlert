@@ -165,7 +165,7 @@ function myAlert(status, text) {
                     let animation = setInterval(() => {
                         if (a == 1) {
                             let one = setInterval(() => {
-                                if (i == -25) {
+                                if (i == -20) {
                                     clearInterval(one)
                                     b = 2
                                 } else {
@@ -173,11 +173,11 @@ function myAlert(status, text) {
                                         'transform': `rotate(${--i}deg)`
                                     })
                                 }
-                            }, 10);
+                            }, 3);
                             a = 2
                         } else if (b == 2) {
                             let two = setInterval(() => {
-                                if (i == 25) {
+                                if (i == 20) {
                                     clearInterval(two)
                                     c = 2
                                 } else {
@@ -185,7 +185,7 @@ function myAlert(status, text) {
                                         'transform': `rotate(${++i}deg)`
                                     })
                                 }
-                            }, 10);
+                            }, 1);
                             b = 3
                         } else if (c == 2) {
                             let three = setInterval(() => {
@@ -197,7 +197,7 @@ function myAlert(status, text) {
                                         'transform': `rotate(${--i}deg)`
                                     })
                                 }
-                            }, 10);
+                            }, 3);
                             c = 3
                         }
                     }, 10)
