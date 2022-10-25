@@ -158,7 +158,7 @@ function myAlert(status, text) {
                 // 设置最终样式
                 setTimeout(() => {
                     let i = 0
-                    // 设置a,b,c变量是为了让one，two，three定时都只会执行一次
+                    // 设置a,b,c变量是为了让one，two，three定时器都只会执行一次
                     let a = 1
                     let b = 1
                     let c = 1
@@ -225,7 +225,7 @@ function myAlert(status, text) {
             }, 1500);
 
         //若没有传入任何参数
-        } else if (!status) {
+        } else {
             return null
         }
     }
