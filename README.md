@@ -17,8 +17,6 @@ myAlert('error'[,'text'])
 myAlert('warning'[,'text'])
 ```
 
-> 注意：使用该方法需联网
-
 
 
 
