@@ -68,7 +68,9 @@ function myAlert(status, text) {
                     'text-align': 'center',
                     'color': '#73777B',
                     'margin-bottom': '0',
-                    'margin-top': '7px'
+                    'margin-top': '7px',
+                    'font-family':"'pingfang cs' 'source han sans cn' 'microsoft yahei' monospace",
+                    'user-select':'none'
                 })
             // 若没有传入了text参数
             } else {
