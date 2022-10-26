@@ -56,7 +56,7 @@ function myAlert(status, text) {
                     'top': '60px',
                     'left': '50%',
                     'transform': 'translateX(-50%) scale(0.5)',
-                    'transition': 'all 0.3s',
+                    // 'transition': 'all 0.3s',
                     'align-items': 'center',
                     'box-shadow': '0 5px 10px rgba(0, 0, 0, .15)',
                     'padding': '14px 25px',
@@ -84,7 +84,7 @@ function myAlert(status, text) {
                     'top': '60px',
                     'left': '50%',
                     'transform': 'translateX(-50%) scale(0.5)',
-                    'transition': 'all 0.3s',
+                    // 'transition': 'all 0.3s',
                     'box-shadow': '0 5px 10px rgba(0, 0, 0, .15)',
                     'padding': '14px',
                     'border-radius': '5px',
@@ -213,14 +213,40 @@ function myAlert(status, text) {
             // 将弹窗写入body中
             document.body.appendChild(pop)
 
-            // 设置最终样式
-            setTimeout(() => {
-                css(pop, {
-                    'transform': 'translateX(-50%) scale(1)',
-                    'opacity': '1',
-                })
-            }, 0);
 
+            //设置pop最终样式
+            let i = 50
+            let a = 1
+            let b = 1
+            let popAnimation = setInterval(() => {
+                if(a == 1){
+                    let one = setInterval(() => {
+                        if(i == 120){
+                            clearInterval(one)
+                            b = 2
+                        }else{
+                            i += 5
+                            css(pop,{
+                                'transform':`translateX(-50%) scale(${i/100})`
+                            })
+                        }
+                    }, 10);
+                    a = 2
+                }else if(b == 2){
+                    let two = setInterval(() => {
+                        if(i == 100){
+                            clearInterval(two)
+                            clearInterval(popAnimation)
+                        }else{
+                            i -= 2
+                            css(pop,{
+                                'transform':`translateX(-50%) scale(${i/100})`
+                            })
+                        }
+                    }, 10);
+                    b = 1
+                }
+            }, 10);
             // 销毁弹窗
             setTimeout(() => {
                 pop.remove()
