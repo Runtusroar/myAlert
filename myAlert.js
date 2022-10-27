@@ -142,8 +142,8 @@ function popFunction(status, text) {
             })
 
             css(icon.children[0], {
-                'width': '30px',
-                'height': '30px',
+                'width': '0px',
+                'height': '0px',
                 'transition': 'all 0.3s 0.3s',
                 'fill': '#E0144C'
             })
@@ -235,6 +235,7 @@ function popFunction(status, text) {
         let a = 1
         let b = 1
         let c = 1
+        //该动画330ms左右
         let popAnimation = setInterval(() => {
             if (a == 1) {
                 let one = setInterval(() => {
