@@ -230,7 +230,7 @@ function popFunction(status, text) {
         document.body.appendChild(pop)
 
 
-        //设置pop最终样式
+        //设置开场动画最终样式
         let i = 50
         let a = 1
         let b = 1
@@ -274,10 +274,24 @@ function popFunction(status, text) {
                 c = 1
             }
         }, 10);
+
         // 销毁弹窗
         setTimeout(() => {
-            pop.remove()
-        }, 1500);
+            //设置pop终场动画(共110ms)
+            let i = 100
+            let j = 10
+            let popEndAnimation = setInterval(() => {
+                if(i == 80){
+                    clearInterval(popEndAnimation)
+                    pop.remove()
+                }else{
+                    css(pop,{
+                        'transform':`translateX(-50%) scale(${(i -= 2) / 100})`,
+                        'opacity':`${(j -= 1)/10}`
+                    })
+                }
+            }, 10);
+        }, 1400);
 
     //若没有传入任何参数
     } else {
@@ -295,3 +309,6 @@ function myAlert(status, text) {
         popFunction(status, text)
     }
 }
+
+// 本方法设定存在时间为1510ms
+// 代码解析时间在3ms ~ 16ms之间波动
